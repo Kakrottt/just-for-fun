@@ -1,0 +1,205 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: popLight;
+    src: url('./fonts/Poppins-Light.ttf');
+}
+
+@font-face {
+    font-family: popRegular;
+    src: url('./fonts/Poppins-Regular.ttf');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: popLight;
+}
+
+.portofolio {
+    color: white;
+    background: radial-gradient(rgba(43, 55, 96, 1), rgba(11, 16, 35, 1));
+}
+
+nav {
+    min-height: 10vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-self: space-between;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.page {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+}
+
+.hero {
+    overflow: hidden;
+    height: 500px;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+
+}
+
+.hero img {
+    height: 500px;
+    transition: transform 0.3s ease-out;
+    cursor: pointer;
+}
+.model-left {
+    transform: translate(0%, -10%);
+}
+.model-right {
+    transform: translate(0%, 10%);
+}
+
+.hero:hover .model-left {
+    transform: translate(0%, 0%);
+}
+.hero:hover .model-right {
+    transform: translate(0%, 0%);
+}
+
+.details {
+    grid-column: 2/3; 
+    align-self: end;
+}
+
+.details h1 {
+    font-size: 64px;
+    font-family: popRegular;
+}
+.details h2 {
+    font-size: 42px;
+    padding: 20px 0px;
+}
+
+.details p {
+    font-size: 24px;
+    padding: 20px 0px 50px 0px;
+}
+
+.pages {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.pages > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pages h3 {
+    font-size: 24px;
+    padding: 20px;
+}
+
+.pages svg {
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(2);
+}
+.pages svg:hover {
+    animation: dot 0.5s ease-in-out infinite alternate;
+}
+.pages svg.active {
+    opacity: 1;
+}
+
+@keyframes dot {
+    0% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(4);
+    }
+}
+
+
+
+.bodyForm {
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.form {
+    width: 50%;
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+
+.form input {
+    width: 100%;
+    height: 100%;
+    color: #595f6e;
+    border-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.form label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.form label::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 3px solid #5fa8d3;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.content-name {
+    position: absolute;
+    bottom: 10px;
+    left: 0%;
+    transition: all 0.3s ease;
+}
+
+.form input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #5fa8d3;
+}
+
+.form input:focus + .label-name::after, 
+.form input:valid + .label-name::after {
+    transform: translateX(0%);
+}
